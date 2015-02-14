@@ -1,0 +1,25 @@
+HOW TO USE:
+-copy a single command into the terminal. 
+-edit the customer or hotel id if nessaray.
+-for testing online use this url: cs419a3.appspot.com
+-for testing locally use: localhost:XXXX/customer (XXXX = port number)
+
+sauce: http://eecs.oregonstate.edu/ecampus-video/player/player.php?id=99
+
+Add customer:
+curl --data "name=disatapp" --data "email=disatapp@example.co.th" --data "phone=541-777-7777" -H "Accept: application/json" cs419a3.appspot.com/customer
+
+customer:
+curl -H "Accept: application/json" cs419a3.appspot.com/customer
+
+Search:
+curl -H "Accept: application/json" cs419a3.appspot.com/customer/search
+
+Add Hotel:
+curl --data-urlencode "name=TestHotel" --data-urlencode "rooms[]=queen" --data-urlencode "rooms[]=double" -d "customers[]=6192449487634432" -d "customers[]= 5910974510923776" -H "Accept: application/json" cs419a3.appspot.com/hotel
+
+Add relation:
+curl -X PUT -H "Accept: application/json" cs419a3.appspot.com/hotel/5348024557502464/customer/5770237022568448
+
+Delete:
+curl -H "Accept: application/json" cs419a3.appspot.com/customer/5066549580791808/delete
